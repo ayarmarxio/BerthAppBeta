@@ -34,19 +34,15 @@ export default class Service {
       });
   }
 
-  async getLogin(username: string, password: string) {
+  getLogin(username: string, password: string) {
     event.preventDefault();
-
     axios
-      .get<IUser[]>(
-        "https://berthapibeta20181025031131.azurewebsites.net/api/users",
-        {
-          params: {
-            user: "user",
-            pass: "password"
-          }
+      .get<IUser[]>(localUri, {
+        params: {
+          user: username,
+          pass: password
         }
-      )
+      })
       .then(function(response: AxiosResponse<IUser[]>): void {
         let data: IUser[] = response.data;
         let stringData: string = JSON.stringify(data);

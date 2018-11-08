@@ -12,8 +12,19 @@ loginBtn.addEventListener("click", TestAxios);
 function TestAxios() {
   event.preventDefault();
 
+  let user: HTMLInputElement = <HTMLInputElement>(
+    document.getElementById("username-input")
+  );
+  let pass: HTMLInputElement = <HTMLInputElement>(
+    document.getElementById("password-input")
+  );
+
+  let userString: string = user.toString();
+  let passString: string = pass.toString();
+
   let service = new Service();
-  service.get();
+
+  service.getLogin(userString, passString);
 }
 
 // loginBtn.addEventListener("click", ExecuteLogin);
