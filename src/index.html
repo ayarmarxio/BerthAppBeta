@@ -1,40 +1,52 @@
 <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
+    />
+    <link rel="stylesheet" href="style.css" type="css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Kodchasan|Roboto|Jura"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-  <link rel="stylesheet" href="style.css" type="css">
-  <link href="https://fonts.googleapis.com/css?family=Kodchasan|Roboto|Jura" rel="stylesheet">
-</head>
-
-<body>
-  <div id="logo-top">
-    <div id="icon-top"></div>
-    <label id="BerthaTextLogo">BerhtApp</label>
-  </div>
-  <div id="container">
-    <form id="main-form">
-      <img id="logo-round" />
-      <label id="signup-label">Sign Up</label>
-      <div class="login-input">
-        <div id="user-icon" class="login-icons"></div>
-        <input id="username-input" class="login-inputs" placeholder="Username" />
-      </div>
-      <div class="login-input">
-        <div id="password-icon" class="login-icons"></div>
-        <input id="password-input" class="login-inputs" placeholder="Password" />
-      </div>
-      <input id="login-btn" type="submit" value="Login" />
-      <div id="login-extra">
-        <div id="rememberme-div">
-          <input type="checkbox" />
-          <a id="remember-me" href="#">Remember Me</a>
+  <body>
+    <div id="logo-top">
+      <div id="icon-top"></div>
+      <label id="BerthaTextLogo">BerhtApp</label>
+    </div>
+    <div id="container">
+      <form id="main-form">
+        <img id="logo-round" /> <label id="signup-label">Sign Up</label>
+        <div class="login-input">
+          <div id="user-icon" class="login-icons"></div>
+          <input
+            id="username-input"
+            class="login-inputs"
+            placeholder="Username"
+          />
         </div>
-        <a id="forgot-password" href="#">Forgot your password?</a>
-      </div>
-    </form>
-  </div>
+        <div class="login-input">
+          <div id="password-icon" class="login-icons"></div>
+          <input
+            type="password"
+            id="password-input"
+            class="login-inputs"
+            placeholder="Password"
+          />
+        </div>
+        <input id="login-btn" type="submit" value="Login" />
+        <div id="login-extra">
+          <div id="rememberme-div">
+            <input type="checkbox" />
+            <a id="remember-me" href="#">Remember Me</a>
+          </div>
+          <a id="forgot-password" href="#">Forgot your password?</a>
+        </div>
+      </form>
+    </div>
 
-  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
-</body>
-
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  </body>
 </html>

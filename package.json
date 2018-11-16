@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
@@ -31,6 +32,7 @@
     "@types/echarts": "^4.1.1",
     "@types/es6-promise": "^3.3.0",
     "@types/ol": "^4.6.2",
+    "@types/openlayers": "^4.6.12",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
     "clean-webpack-plugin": "^0.1.19",
