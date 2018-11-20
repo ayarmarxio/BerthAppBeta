@@ -38,4 +38,23 @@ export default class Service {
         alert("User not found");
       });
   }
+
+  submitForm(
+    recordId: number,
+    point: string[],
+    recordTime: Date,
+    bpSystolic: number,
+    bpDiastolic: number,
+    bodyTemperature: number,
+    heartBeat: number,
+    dust: number,
+    sulphur: number,
+    nitrogen: number,
+    fluor: number,
+    carbonMonoxide: number,
+    ozone: number,
+    userId: number
+  ) {
+    event.preventDefault();
+  }
 }

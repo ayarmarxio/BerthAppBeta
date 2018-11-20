@@ -42,26 +42,28 @@ export default class OpenLayers {
       ],
       target: "map",
       view: new View({
-        center: transform([9.7320104, 52.3758916], "EPSG:4326", "EPSG:3857"),
+        center: transform(
+          [12.088952064514158, 55.639260563486914],
+          "EPSG:4326",
+          "EPSG:3857"
+        ),
         zoom: 14
       })
     });
 
     map.on("click", function(event) {
       let coords = map.getCoordinateFromPixel(event.pixel);
-      console.log(coords);
       this._coords = coords;
+      console.log("Estas son las this coords: " + this._coords);
+
+      document.getElementById("hidden-coords").value = coords;
+
       let long = coords[0];
       let lat = coords[1];
-      console.log(long);
-      console.log(lat);
+
       let newCoords = transform([long, lat], "EPSG:3857", "EPSG:4326");
-      console.log("se transforma???" + newCoords);
       let newLong = newCoords[0];
       let newLat = newCoords[1];
-      console.log("new long: " + newLong);
-      console.log("new lat: " + newLat);
-
       let url =
         "http://photon.komoot.de/reverse?lon=" + newLong + "&lat=" + newLat;
 
@@ -70,15 +72,11 @@ export default class OpenLayers {
 
     async function getAddressNow(url) {
       let getAddress = await axios.get(url);
-      console.log(getAddress);
-      let street = getAddress.data.features[0].properties.street;
-      console.log("Esta es la calle: " + street);
       let city = getAddress.data.features[0].properties.city;
       let country = getAddress.data.features[0].properties.country;
-      let houseNumber = getAddress.data.features[0].properties.housenumber;
-      let addressFinal =
-        street + " # " + houseNumber + ", " + city + " " + country;
-      console.log(addressFinal);
+      let postcode = getAddress.data.features[0].properties.postcode;
+      let addressFinal = city + "  " + postcode + ", " + country;
+
       alert(addressFinal);
 
       document.getElementById("location-span").innerHTML = addressFinal;
