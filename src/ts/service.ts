@@ -3,7 +3,9 @@ import axios, {
   AxiosError
 } from "../../node_modules/axios/index";
 import IUser from "../interfaces/IUser";
+import IRecord from "../interfaces/IRecord";
 const localUri: string = "http://localhost:50070/api/users/login/";
+const postLocalUri: string = "http://localhost:50070/api/records/";
 const azureUri: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/users";
 
@@ -16,45 +18,71 @@ export default class Service {
     event.preventDefault();
 
     let query: string = localUri.concat(username + "/" + password);
+    console.log("Esta es la query: " + query);
 
     axios
-      .get<IUser[]>(query, {
-        params: {
-          user: username,
-          pass: password
-        }
-      })
-      .then(function(response: AxiosResponse<IUser[]>): void {
-        let data: IUser[] = response.data;
-
-        let stringData: string = JSON.stringify(data);
-
-        if (stringData != null) {
+      .get<IUser>(query)
+      .then(
+        (response: AxiosResponse<IUser>): void => {
+          console.log(response.data);
+          console.log(response.data.userId);
+          console.log(response.data.username);
+          let userId: number = response.data.userId;
+          let userIdString: string = userId.toString();
+          let userName: string = response.data.username;
+          let userNameString: string = userName.toString();
+          console.log("Este es el username string: " + userNameString);
+          localStorage.setItem("userId", userIdString);
+          localStorage.setItem("userName", userNameString);
           window.location.href = "userview.html";
         }
-      })
+      )
       .catch(function(error: AxiosError): void {
         console.log(JSON.stringify(error));
         alert("User not found");
       });
   }
 
-  submitForm(
-    recordId: number,
-    point: string[],
-    recordTime: Date,
-    bpSystolic: number,
-    bpDiastolic: number,
-    bodyTemperature: number,
-    heartBeat: number,
-    dust: number,
-    sulphur: number,
-    nitrogen: number,
-    fluor: number,
-    carbonMonoxide: number,
-    ozone: number,
-    userId: number
+  submitToApi(
+    Long: number,
+    Lat: number,
+    BpSystolic: number,
+    BpDiastolic: number,
+    BodyTemperature: number,
+    HeartBeat: number,
+    Dust: number,
+    Sulphur: number,
+    Nitrogen: number,
+    Fluor: number,
+    CarbonMonoxide: number,
+    Ozone: number,
+    UserId: number
   ) {
     event.preventDefault();
+    let query: string = postLocalUri;
+    console.log(query);
+    console.log("Este es el heartbeat" + HeartBeat);
+    axios
+      .post<IRecord>(query, {
+        long: Long,
+        lat: Lat,
+        bpSystolic: BpSystolic,
+        bpDiastolic: BpDiastolic,
+        bodytemperature: BodyTemperature,
+        heartBeatPerSecond: HeartBeat,
+        dust: Dust,
+        sulphur: Sulphur,
+        nitrogen: Nitrogen,
+        fluor: Fluor,
+        carbonMonoxide: CarbonMonoxide,
+        ozone: Ozone,
+        userId: UserId
+      })
+      .then((response: AxiosResponse) => {
+        console.log(response.data);
+      })
+      .catch((error: AxiosError) => {
+        console.log(error);
+      });
   }
 }

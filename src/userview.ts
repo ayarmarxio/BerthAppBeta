@@ -4,6 +4,11 @@ import DpChart from "./charts/pollution/dp-chart";
 import SpChart from "./charts/pollution/sp-Chart";
 import OpChart from "./charts/pollution/op-chart";
 import OpenLayerClass from "./ts/openlayers";
+import Service from "./ts/service";
+
+let userName: string = localStorage.getItem("userName");
+console.log("Este es el usernam: " + userName);
+document.getElementById("user-span").innerHTML = "Hi, " + userName;
 
 let dpChart = new DpChart();
 let spChart = new SpChart();
@@ -54,35 +59,81 @@ function submitForm() {
   );
 
   let coordsValue = coordsInput.value;
-  console.log("Este es el valor de la coordenadas input: " + coordsValue);
-  const date = new Date();
-  console.log("Esta es la date limpia: " + date);
-  const datelocal = new Date().toLocaleString();
-  console.log("est es date local: " + datelocal);
-
   let bpValueString: string = bpInput.value;
 
-  let systolicValue = getSystolic(bpValueString);
-  let diastolicValue = getDiastolic(bpValueString);
+  let systolicValue: number = getSystolic(bpValueString);
+  let diastolicValue: number = getDiastolic(bpValueString);
+  let longValue: number = getLongValue(coordsValue);
+  let latValue: number = getLatValue(coordsValue);
 
-  let btValue: number = btInput.valueAsNumber;
-  let hbValue: number = hbInput.valueAsNumber;
-  let dpValue: number = dpInput.valueAsNumber;
-  let sdValue: number = sdInput.valueAsNumber;
-  let onValue: number = onInput.valueAsNumber;
-  let fValue: number = fInput.valueAsNumber;
-  let cmValue: number = cmInput.valueAsNumber;
-  let opValue: number = opInput.valueAsNumber;
+  let btValueString: string = btInput.value;
+  let btValue: number = +btValueString;
+  let hbValueString: string = hbInput.value;
+  let hbValue: number = +hbValueString;
+  console.log("Este es el heartBeat per second: " + hbValue);
+  let dpValueString: string = dpInput.value;
+  let dpValue: number = +dpValueString;
+  let sdValueString: string = sdInput.value;
+  let sdValue: number = +sdValueString;
+  let onValueString: string = onInput.value;
+  let onValue: number = +onValueString;
+  let fValueString: string = fInput.value;
+  let fValue: number = +fValueString;
+  let cmValueString: string = cmInput.value;
+  let cmValue: number = +cmValueString;
+  let opValueString: string = opInput.value;
+  let opValue: number = +opValueString;
+
+  let userIdValue: string = localStorage.getItem("userId");
+  let userValue: number = +userIdValue;
+  console.log("Este es el valor: " + userIdValue);
+
+  let service = new Service();
+  service.submitToApi(
+    longValue,
+    latValue,
+    systolicValue,
+    diastolicValue,
+    btValue,
+    hbValue,
+    dpValue,
+    sdValue,
+    onValue,
+    fValue,
+    cmValue,
+    opValue,
+    userValue
+  );
 }
 
 function getSystolic(bpValueString: string) {
-  let BpSystolic = bpValueString.slice(0, 3);
+  let BpSystolicSplit = bpValueString.split("/", 2);
+  let BpSystolicString = BpSystolicSplit[0];
+  let BpSystolic = +BpSystolicString;
   console.log("Este es el systolic: " + BpSystolic);
   return BpSystolic;
 }
 
 function getDiastolic(bpValueString: string) {
-  let diastolic = bpValueString.slice(4);
-  console.log("Este es la medida del diastolic: " + diastolic);
-  return diastolic;
+  let BpDiastolicSplit = bpValueString.split("/", 2);
+  let BpDiastolicString = BpDiastolicSplit[1];
+  let BpDiastolic = +BpDiastolicString;
+  console.log("Este es la medida del diastolic: " + BpDiastolic);
+  return BpDiastolic;
+}
+
+function getLongValue(coordsValue: string) {
+  let longSplit = coordsValue.split(",", 2);
+  let longValueString = longSplit[0];
+  let longValue = +longValueString;
+  console.log(longValue);
+  return longValue;
+}
+
+function getLatValue(coordsValue: string) {
+  let latSplit = coordsValue.split(",", 2);
+  let latValueString = latSplit[1];
+  let latValue = +latValueString;
+  console.log(latValue);
+  return latValue;
 }

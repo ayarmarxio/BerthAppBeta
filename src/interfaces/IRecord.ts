@@ -1,7 +1,6 @@
 export default interface IRecord {
-  recordId: number;
-  point: string[];
-  recordTime: Date;
+  long: number;
+  lat: number;
   bpSystolic: number;
   bpDiastolic: number;
   bodyTemperature: number;
