@@ -4,10 +4,12 @@ import axios, {
 } from "../../node_modules/axios/index";
 import IUser from "../interfaces/IUser";
 import IRecord from "../interfaces/IRecord";
-const localUri: string = "http://localhost:50070/api/users/login/";
+const getlocalUriLogin: string = "http://localhost:50070/api/users/login/";
 const postLocalUri: string = "http://localhost:50070/api/records/";
-const azureUri: string =
-  "https://berthapibeta20181025031131.azurewebsites.net/api/users";
+const postAzureUri: string =
+  "https://berthapibeta20181025031131.azurewebsites.net/api/records/";
+const getAzureUriLogin: string =
+  "https://berthapibeta20181025031131.azurewebsites.net/api/users/login/";
 
 export default class Service {
   constructor() {
@@ -17,7 +19,7 @@ export default class Service {
   requestLogin(username: string, password: string) {
     event.preventDefault();
 
-    let query: string = localUri.concat(username + "/" + password);
+    let query: string = getAzureUriLogin.concat(username + "/" + password);
     console.log("Esta es la query: " + query);
 
     axios
@@ -59,7 +61,7 @@ export default class Service {
     UserId: number
   ) {
     event.preventDefault();
-    let query: string = postLocalUri;
+    let query: string = postAzureUri;
     console.log(query);
     console.log("Este es el heartbeat" + HeartBeat);
     axios
