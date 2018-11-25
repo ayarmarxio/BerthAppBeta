@@ -7,6 +7,7 @@ nav {
   grid-column: 1/13;
   background: #20343b;
   height: 100%;
+  width: 100%;
 }
 #logo {
   display: inline;
@@ -330,4 +331,328 @@ nav {
   width: 100%;
   height: 300px;
   margin: 10 auto;
+}
+
+@media only screen and (max-width: 1350px) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  nav {
+    grid-row: 1/2;
+    grid-column: 1/13;
+    background: #20343b;
+    height: 50px;
+  }
+  #logo {
+    display: inline;
+  }
+  #icon-berthapp {
+    background: url(../../assets/BerthAppIcon.png);
+    background-size: contain;
+    background-position: center center;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+  }
+  #logotext {
+    display: inline-block;
+    font-size: 16px;
+    font-family: "Kodchasan", sans-serif;
+    color: #fa7040;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+  }
+  #nav-btn-container {
+    float: right;
+    margin-top: 8px;
+  }
+
+  #user-span {
+    font-size: 17px;
+    color: whitesmoke;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .login-icon {
+    height: 25px;
+    width: 25px;
+    vertical-align: -6px;
+    margin-right: 2px;
+  }
+  #user-icon {
+    display: inline-block;
+    background: url(../../assets/userIconW.png);
+    background-size: contain;
+    background-position: center center;
+  }
+
+  #password-icon {
+    display: inline-block;
+    background: url(../../assets/lockIconV2White.png);
+    background-size: contain;
+    background-position: center center;
+  }
+
+  #log-in-btn {
+    float: right;
+    height: 30px;
+    width: 110px;
+    float: right;
+    color: whitesmoke;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    margin-left: 18px;
+    margin-right: 8px;
+    background: #fa7040;
+    border-style: none;
+  }
+  #container {
+    display: grid;
+    grid-column: 1/13;
+    grid-row: 2/13;
+  }
+  #drawer {
+    grid-column: 1/3;
+    grid-row: 1/13;
+    width: 100%;
+  }
+
+  #indicators-form {
+    background: #7e8a8a;
+    width: 100%;
+  }
+
+  #form-title {
+    background: transparent;
+    color: #fdffff;
+    font-family: "Jura", sans-serif;
+    font-size: 14px;
+    font-weight: lighter;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
+
+  .indicator-input {
+    background: #e6e8e9;
+    border-style: solid;
+    border-color: #7e8a8a;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    width: 100%;
+  }
+
+  .indicator-icon {
+    height: 25px;
+    width: 25px;
+    background: #445351;
+    vertical-align: -9px;
+    padding: 7px;
+  }
+  #location-span {
+    color: #445351;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+  }
+  .input-item {
+    background: #e6e8e9;
+    border-style: none;
+    width: 100px;
+    font-size: 11px;
+  }
+
+  #map-icon {
+    display: inline-block;
+    background: url(../../assets/mapIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #blood-icon {
+    display: inline-block;
+    background: url(../../assets/bloodPressurew.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #temperature-icon {
+    display: inline-block;
+    background: url(../../assets/BodyTemperatureIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #heart-beat {
+    display: inline-block;
+    background: url(../../assets/HeartBeatIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #dust-percentage {
+    display: inline-block;
+    background: url(../../assets/dustIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #sulphur-icon {
+    display: inline-block;
+    background: url(../../assets/sulfurIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #nitrogen-icon {
+    display: inline-block;
+    background: url(../../assets/nitrogen.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+  #fluor-icon {
+    display: inline-block;
+    background: url(../../assets/fluorIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #carbon-icon {
+    display: inline-block;
+    background: url(../../assets/carbonoIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+
+  #ozone-icon {
+    display: inline-block;
+    background: url(../../assets/OzoneIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+  }
+  #btn-submit {
+    height: 30px;
+    color: #e6e8e9;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    background: #fa7040;
+    width: 100%;
+    margin-bottom: 4px;
+    border-style: solid;
+    border-color: #7e8a8a;
+    border-top-width: 3px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+  }
+  #filter {
+    grid-column: 1/3;
+    background: #e6e8e9;
+    width: 100%;
+    height: 180px;
+    vertical-align: top;
+  }
+  #filter-title {
+    display: block;
+    text-align: left;
+    height: 15px;
+    background: transparent;
+    color: #445351;
+    font-family: "Jura", sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+    padding-top: 9px;
+    margin-left: 9px;
+    margin-bottom: 11px;
+  }
+  .datepicker-item {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+  }
+
+  .dp-labels {
+    display: block;
+    text-align: left;
+    background: transparent;
+    color: #445351;
+    font-family: "Roboto", sans-serif;
+    font-size: 11px;
+    font-weight: lighter;
+    margin-top: 13px;
+  }
+  .calendar-item {
+    text-align: left;
+  }
+  .calendar-icon {
+    display: inline-block;
+    background: url(../../assets/calendarIconW.png);
+    background-size: contain;
+    background-position: center center;
+    background-color: #445351;
+    height: 20px;
+    width: 20px;
+  }
+  .datepickers {
+    vertical-align: top;
+    width: 100px;
+  }
+  #find-btn {
+    height: 30px;
+    color: #e6e8e9;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    background: #fa7040;
+    margin: 0 auto;
+    width: 180px;
+    border-style: solid;
+    border-color: #e6e8e9;
+    border-top-width: 3px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+  }
+
+  #centerview {
+    display: inline-block;
+    grid-column: 3/10;
+  }
+
+  #map {
+    height: 280px;
+    width: 100%;
+  }
+
+  #health-chart {
+    width: 900px;
+    height: 250px;
+    margin: 0 auto;
+  }
+  .pollution-view {
+    grid-column: 10/13;
+    align-items: center;
+  }
+  #dp-chart {
+    width: 220px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  #sp-chart {
+    height: 100px;
+    width: 220px;
+    margin-bottom: 40px;
+  }
+  #op-chart {
+    width: 220px;
+    height: 200px;
+    margin: 50 auto;
+  }
 }
