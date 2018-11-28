@@ -5,6 +5,7 @@ import SpChart from "./charts/pollution/sp-Chart";
 import OpChart from "./charts/pollution/op-chart";
 import OpenLayerClass from "./ts/openlayers";
 import Service from "./ts/service";
+import $ from "jquery";
 
 let userName: string = localStorage.getItem("userName");
 console.log("Este es el usernam: " + userName);
@@ -136,4 +137,27 @@ function getLatValue(coordsValue: string) {
   let latValue = +latValueString;
   console.log(latValue);
   return latValue;
+}
+
+// DATEPICKER LOGIC
+
+let datepickerfrom: HTMLInputElement = <HTMLInputElement>(
+  document.getElementById("datepickerfrom")
+);
+
+let datepickerto: HTMLInputElement = <HTMLInputElement>(
+  document.getElementById("datepickerfrom")
+);
+
+let findBtn: HTMLButtonElement = <HTMLButtonElement>(
+  document.getElementById("find-btn")
+);
+findBtn.addEventListener("click", sendDates);
+
+function sendDates() {
+  console.log("Este es el datepicker from: " + datepickerfrom);
+  console.log("Este es el datepicker from: " + datepickerto);
+
+  let value1: any = datepickerfrom.value;
+  console.log("Este es el value1 from: " + value1);
 }
