@@ -146,7 +146,7 @@ let datepickerfrom: HTMLInputElement = <HTMLInputElement>(
 );
 
 let datepickerto: HTMLInputElement = <HTMLInputElement>(
-  document.getElementById("datepickerfrom")
+  document.getElementById("datepickerto")
 );
 
 let findBtn: HTMLButtonElement = <HTMLButtonElement>(
@@ -158,6 +158,15 @@ function sendDates() {
   console.log("Este es el datepicker from: " + datepickerfrom);
   console.log("Este es el datepicker from: " + datepickerto);
 
-  let value1: any = datepickerfrom.value;
-  console.log("Este es el value1 from: " + value1);
+  let value1Date: Date = datepickerfrom.valueAsDate;
+  let value2Date: Date = datepickerto.valueAsDate;
+
+  let value1: number = value1Date.getTime() / 1000;
+  let value2: number = value2Date.getTime() / 1000;
+
+  let userIdString: string = localStorage.getItem("userId");
+  let userId: number = +userIdString;
+
+  let service = new Service();
+  service.sendDatesToApi(userId, value1, value2);
 }

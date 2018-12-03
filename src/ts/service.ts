@@ -10,6 +10,7 @@ const postAzureUri: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/records/";
 const getAzureUriLogin: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/users/login/";
+const getAzureUriDateFilter: string = "";
 
 export default class Service {
   constructor() {
@@ -64,6 +65,7 @@ export default class Service {
     let query: string = postAzureUri;
     console.log(query);
     console.log("Este es el heartbeat" + HeartBeat);
+
     axios
       .post<IRecord>(query, {
         long: Long,
@@ -86,5 +88,13 @@ export default class Service {
       .catch((error: AxiosError) => {
         console.log(error);
       });
+  }
+
+  sendDatesToApi(userId: number, value1: number, value2: number) {
+    event.preventDefault();
+    let query: string = getAzureUriDateFilter.concat(
+      userId + "/" + value1 + "/" + value2
+    );
+    console.log("Esta es la query: " + query);
   }
 }
