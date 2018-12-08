@@ -1,20 +1,15 @@
 import "./scss/userview.scss";
 import HealthChart from "./charts/health-chart";
-import DpChart from "./charts/pollution/dp-chart";
+
 import SpChart from "./charts/pollution/sp-Chart";
-import OpChart from "./charts/pollution/op-chart";
+
 import OpenLayerClass from "./ts/openlayers";
 import Service from "./ts/service";
-import $ from "jquery";
+import $ from "../node_modules/@types/jquery/index";
 
 let userName: string = localStorage.getItem("userName");
 console.log("Este es el usernam: " + userName);
 document.getElementById("user-span").innerHTML = "Hi, " + userName;
-
-let dpChart = new DpChart();
-let spChart = new SpChart();
-let healthChart = new HealthChart();
-let opChart = new OpChart();
 
 let Olp = new OpenLayerClass();
 Olp.getMap();
@@ -158,11 +153,23 @@ function sendDates() {
   console.log("Este es el datepicker from: " + datepickerfrom);
   console.log("Este es el datepicker from: " + datepickerto);
 
-  let value1Date: Date = datepickerfrom.valueAsDate;
-  let value2Date: Date = datepickerto.valueAsDate;
+  let value1D = datepickerfrom.value;
+  let value2D = datepickerto.value;
+
+  console.log(value1D);
+  console.log(value2D);
+
+  let value1Date: Date = new Date(value1D);
+  let value2Date: Date = new Date(value2D);
+
+  console.log(value1Date);
+  console.log(value2Date);
 
   let value1: number = value1Date.getTime() / 1000;
   let value2: number = value2Date.getTime() / 1000;
+
+  console.log("Value1: " + value1);
+  console.log("Value2: " + value2);
 
   let userIdString: string = localStorage.getItem("userId");
   let userId: number = +userIdString;

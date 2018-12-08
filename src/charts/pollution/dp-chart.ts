@@ -1,11 +1,10 @@
 import Echarts from "echarts";
 
 export default class DpChart {
-  constructor() {
-    this.getPollutionChart();
-  }
+  constructor() {}
 
-  getPollutionChart() {
+  getPollutionChart(valuesArray: number[]) {
+    console.log(valuesArray);
     let Chart: HTMLDivElement = <HTMLDivElement>(
       document.getElementById("dp-chart")
     );
@@ -13,21 +12,45 @@ export default class DpChart {
     let MyChart = Echarts.init(Chart);
 
     let option = {
-      title: { text: "Dust Percentage" },
-      tooltip: {},
-      legend: { data: ["Pollution"] },
-      xAxis: {
-        data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
+      title: {
+        text: "Pollution",
+        subtext: "Pollution average during the selected days"
       },
-      yAxis: {},
-      itemStyle: {
-        color: "#445351"
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "shadow"
+        }
+      },
+      legend: {
+        data: ["2011年"]
+      },
+      grid: {
+        left: "3%",
+        right: "4%",
+        bottom: "3%",
+        containLabel: true
+      },
+      xAxis: {
+        type: "value",
+        boundaryGap: [0, 1]
+      },
+      yAxis: {
+        type: "category",
+        data: [
+          "Dust",
+          "Sulphur",
+          "Nitrogen",
+          "Fluor",
+          "CarbonMonoxide",
+          "Ozone"
+        ]
       },
       series: [
         {
-          name: "Sales",
+          name: "Average",
           type: "bar",
-          data: [5, 20, 36, 10, 10, 20]
+          data: valuesArray
         }
       ]
     };

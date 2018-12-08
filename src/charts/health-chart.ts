@@ -1,11 +1,15 @@
 import Echarts from "echarts";
 
 export default class HealthChart {
-  constructor() {
-    this.getHealthChart();
-  }
+  constructor() {}
 
-  getHealthChart() {
+  getHealthChart(
+    axisArray: number[],
+    bloodSeries: number[],
+    bodyseries: number[],
+    heartseries: number[],
+    carbonSeries: number[]
+  ) {
     let HealthChart: HTMLDivElement = <HTMLDivElement>(
       document.getElementById("health-chart")
     );
@@ -45,7 +49,7 @@ export default class HealthChart {
         {
           type: "category",
           boundaryGap: false,
-          data: ["2013", "2014", "2015", "2016", "2017", "2018", "2019"]
+          data: axisArray
         }
       ],
       yAxis: [
@@ -59,21 +63,21 @@ export default class HealthChart {
           type: "line",
           stack: "总量",
           areaStyle: {},
-          data: [120, 132, 101, 134, 90, 230, 210]
+          data: bloodSeries
         },
         {
           name: "Body Temperature",
           type: "line",
           stack: "总量",
           areaStyle: {},
-          data: [220, 182, 191, 234, 290, 330, 310]
+          data: bodyseries
         },
         {
           name: "Heart Beat",
           type: "line",
           stack: "总量",
           areaStyle: {},
-          data: [150, 232, 201, 154, 190, 330, 410]
+          data: heartseries
         },
         {
           name: "Carbon Monoxide",
@@ -86,7 +90,7 @@ export default class HealthChart {
             }
           },
           areaStyle: { normal: {} },
-          data: [820, 932, 901, 934, 1290, 1330, 1320]
+          data: carbonSeries
         }
       ]
     };

@@ -1,11 +1,9 @@
 import Echarts from "echarts";
 
 export default class SpChart {
-  constructor() {
-    this.getSpChart();
-  }
+  constructor() {}
 
-  getSpChart() {
+  getWeatherChart(valuesArray: number[]) {
     let SpChart: HTMLDivElement = <HTMLDivElement>(
       document.getElementById("sp-chart")
     );
@@ -13,26 +11,21 @@ export default class SpChart {
     let MySpChart = Echarts.init(SpChart);
 
     let option = {
+      title: {
+        text: "Weather",
+        subtext: "Weather average during the selected days"
+      },
+      xAxis: {
+        type: "category",
+        data: ["Temperature", "Pressure", "Humidity"]
+      },
+      yAxis: {
+        type: "value"
+      },
       series: [
         {
-          name: "Sulphur Percentage",
-          type: "pie",
-          radius: "55%",
-          roseType: "angle",
-          backgroundColor: "#2c343c",
-          itemStyle: {
-            emphasis: {
-              shadowBlur: 200,
-              shadowColor: "rgba(0, 0, 0, 0.5)"
-            }
-          },
-          data: [
-            { value: 400, name: "Searching Engine" },
-            { value: 335, name: "Direct" },
-            { value: 310, name: "Email" },
-            { value: 274, name: "Alliance Advertisement" },
-            { value: 235, name: "Video Advertisement" }
-          ]
+          data: valuesArray,
+          type: "bar"
         }
       ]
     };

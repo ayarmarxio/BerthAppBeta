@@ -1,6 +1,6 @@
 export default interface IRecordaverage {
-  day: number;
-  month: number;
+  dayDate: number;
+  monthDate: number;
   bpSystolic: number;
   bpDiastolic: number;
   bodyTemperature: number;
@@ -11,4 +11,7 @@ export default interface IRecordaverage {
   fluor: number;
   carbonMonoxide: number;
   ozone: number;
+  temperature: number;
+  pressure: number;
+  humidity: number;
 }
