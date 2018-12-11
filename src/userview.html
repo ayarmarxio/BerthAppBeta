@@ -109,16 +109,29 @@
         <div id="centerview">
             <div id="map"></div>
             <div id="health-chart"></div>
+
         </div>
         <div class=" pollution-view">
             <div class="pollution-chart" id="dp-chart"></div>
+            <table id="table">
+                <tr>
+                  <th class="table-headers">Blood Pressure</th>
+                  <th class="table-headers">Value</th>
+                </tr>
+                <tr>
+                  <td class="blood-pressure-title">Systolic</td>
+                  <td id="systolic-value"></td>             
+                </tr>
+                <tr>
+                  <td class="blood-pressure-title">Diastolic</td>
+                  <td id="diastolic-value"></td>                  
+                </tr>               
+              </table>
             <div class="pollution-chart" id="sp-chart"></div>
+            <!-- <div id="health-chart"></div> -->
 
 
-            
-            <!-- <canvas class="pollution-chart " id="fluor-chart ">fluor-chart</canvas>
-            <canvas class="pollution-chart " id="cmp-chart ">cmp-chart</canvas>
-            <canvas class="pollution-chart " id="oz-chart ">oz-chart</canvas> -->
+    
 
         </div>
     </div>

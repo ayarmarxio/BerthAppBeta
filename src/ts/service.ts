@@ -9,24 +9,23 @@ import HealthChart from "../charts/health-chart";
 import SpChart from "../charts/pollution/sp-chart";
 import DpChart from "../charts/pollution/dp-chart";
 
+// Diverse URI from local web api and Azure webapi
 const getlocalUriLogin: string = "http://localhost:50070/api/users/login/";
-
 const postLocalUri: string = "http://localhost:50070/api/records/";
-
 const postAzureUri: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/records/";
-
 const getAzureUriLogin: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/users/login/";
-
 const getAzureUriDateFilter: string =
   "http://localhost:50070/api/Records/filterbydate/";
 
+// Class that contained methods to connect with the API
 export default class Service {
   constructor() {
     let service = axios.create({});
   }
 
+  //Method for login
   requestLogin(username: string, password: string) {
     event.preventDefault();
 
@@ -56,6 +55,7 @@ export default class Service {
       });
   }
 
+  // Method for posting indicators data
   submitToApi(
     Long: number,
     Lat: number,
@@ -100,6 +100,7 @@ export default class Service {
       });
   }
 
+  // Method for requesting data filtered by date
   sendDatesToApi(userId: number, value1: number, value2: number) {
     event.preventDefault();
 
@@ -150,6 +151,9 @@ export default class Service {
 
             let bpSystolic = element.bpSystolic.toFixed(2);
             let bpDiastolic = element.bpDiastolic.toFixed(2);
+            document.getElementById("systolic-value").innerHTML = bpSystolic;
+            document.getElementById("diastolic-value").innerHTML = bpDiastolic;
+
             let bloodPressureString: string = (
               +bpSystolic / +bpDiastolic
             ).toFixed(2);
@@ -257,6 +261,7 @@ export default class Service {
   }
 }
 
+// Method get the average of indicators
 function getAverage(valueArray: number[]) {
   let sum: number = 0;
 

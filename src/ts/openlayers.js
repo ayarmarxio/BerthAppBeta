@@ -18,6 +18,7 @@ export default class OpenLayers {
     return this._coords;
   }
 
+  //Method to create the map
   getMap() {
     var mousePositionControl = new MousePosition({
       coordinateFormat: createStringXY(4),
@@ -51,6 +52,7 @@ export default class OpenLayers {
       })
     });
 
+    // Method to get coordinates from clicking in the map
     map.on("click", function(event) {
       let coords = map.getCoordinateFromPixel(event.pixel);
       this._coords = coords;
@@ -70,6 +72,7 @@ export default class OpenLayers {
       getAddressNow(url);
     });
 
+    // Method that connects with Geo Api to get the address
     async function getAddressNow(url) {
       let getAddress = await axios.get(url);
       let city = getAddress.data.features[0].properties.city;

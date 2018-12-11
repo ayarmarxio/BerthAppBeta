@@ -13,7 +13,13 @@ export default class SpChart {
     let option = {
       title: {
         text: "Weather",
-        subtext: "Weather average during the selected days"
+        subtext: "Weather average during selected days"
+      },
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "shadow"
+        }
       },
       xAxis: {
         type: "category",

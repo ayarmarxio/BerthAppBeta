@@ -1,12 +1,8 @@
 import "./scss/userview.scss";
-import HealthChart from "./charts/health-chart";
-
-import SpChart from "./charts/pollution/sp-Chart";
-
 import OpenLayerClass from "./ts/openlayers";
 import Service from "./ts/service";
-import $ from "../node_modules/@types/jquery/index";
 
+//
 let userName: string = localStorage.getItem("userName");
 console.log("Este es el usernam: " + userName);
 document.getElementById("user-span").innerHTML = "Hi, " + userName;

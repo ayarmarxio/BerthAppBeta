@@ -14,7 +14,7 @@ export default class DpChart {
     let option = {
       title: {
         text: "Pollution",
-        subtext: "Pollution average during the selected days"
+        subtext: "Pollution average during selected days"
       },
       tooltip: {
         trigger: "axis",
@@ -37,14 +37,7 @@ export default class DpChart {
       },
       yAxis: {
         type: "category",
-        data: [
-          "Dust",
-          "Sulphur",
-          "Nitrogen",
-          "Fluor",
-          "CarbonMonoxide",
-          "Ozone"
-        ]
+        data: ["Dust", "Sulphur", "Nitrogen", "Fluor", "CO2", "Ozone"]
       },
       series: [
         {
