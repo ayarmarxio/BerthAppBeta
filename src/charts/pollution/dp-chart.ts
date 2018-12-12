@@ -14,7 +14,16 @@ export default class DpChart {
     let option = {
       title: {
         text: "Pollution",
-        subtext: "Pollution average during selected days"
+        subtext: "Average during selected days",
+        textStyle: {
+          fontFamily: "Jura",
+          fontSize: "18",
+          fontStyle: "normal",
+          fontWeight: "bold"
+        },
+        subtextStyle: {
+          fontSize: "11"
+        }
       },
       tooltip: {
         trigger: "axis",
@@ -37,13 +46,24 @@ export default class DpChart {
       },
       yAxis: {
         type: "category",
-        data: ["Dust", "Sulphur", "Nitrogen", "Fluor", "CO2", "Ozone"]
+        data: ["Dust", "Sulphur", "Nitrogen", "Fluor", "CO2", "Ozone"],
+        textStyle: {
+          fontFamily: "Jura",
+          fontSize: "3"
+        }
       },
       series: [
         {
           name: "Average",
           type: "bar",
-          data: valuesArray
+          data: valuesArray,
+          itemStyle: {
+            color: "#fa7040",
+            textStyle: {
+              fontFamily: "Jura",
+              fontSize: "3"
+            }
+          }
         }
       ]
     };

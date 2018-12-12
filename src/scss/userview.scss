@@ -640,7 +640,7 @@ nav {
   }
 
   #map {
-    height: 350px;
+    height: 560px;
     width: 100%;
     margin-right: 10px;
   }
@@ -654,39 +654,46 @@ nav {
   .pollution-view {
     grid-column: 10/13;
     align-items: center;
+    padding: 5px;
   }
 
   #dp-chart {
-    width: 200px;
-    height: 165px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 155px;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
 
   #sp-chart {
-    height: 165px;
+    height: 155px;
     width: 100%;
-    margin-bottom: 10px;
     margin-left: 10px;
   }
 
   #health-chart {
     width: 100%;
-    height: 180px;
+    height: 150px;
     margin: 0 auto;
   }
-  table,
-  th,
+  #table {
+    border: 1px solid #445351;
+    width: 100%;
+    height: 18px;
+    margin: 0 auto;
+  }
+  th {
+    border: 1px solid #445351;
+    padding: 5px;
+    background: #7e8a8a;
+    color: whitesmoke;
+    font-family: "Jura", sans-serif;
+    font-weight: lighter;
+  }
   td {
     border: 1px solid #445351;
-  }
-  th,
-  td {
-    padding: 15px;
-  }
-
-  #table {
-    width: 100%;
-    height: 165px;
-    margin: 0 auto;
+    padding: 5px;
+    font-family: "Jura", sans-serif;
+    font-weight: lighter;
+    background: #fdffff;
   }
 }

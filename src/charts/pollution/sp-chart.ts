@@ -11,9 +11,19 @@ export default class SpChart {
     let MySpChart = Echarts.init(SpChart);
 
     let option = {
+      backgroundColor: "#fdffff",
       title: {
         text: "Weather",
-        subtext: "Weather average during selected days"
+        subtext: "Average during selected days",
+        textStyle: {
+          fontFamily: "Jura",
+          fontSize: "18",
+          fontStyle: "normal",
+          fontWeight: "bold"
+        },
+        subtextStyle: {
+          fontSize: "11"
+        }
       },
       tooltip: {
         trigger: "axis",
@@ -23,7 +33,7 @@ export default class SpChart {
       },
       xAxis: {
         type: "category",
-        data: ["Temperature", "Pressure", "Humidity"]
+        data: ["Temp", "Press", "Humid"]
       },
       yAxis: {
         type: "value"
@@ -31,7 +41,14 @@ export default class SpChart {
       series: [
         {
           data: valuesArray,
-          type: "bar"
+          type: "bar",
+          itemStyle: {
+            color: "#fa7040",
+            textStyle: {
+              fontFamily: "Jura",
+              fontSize: "5"
+            }
+          }
         }
       ]
     };

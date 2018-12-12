@@ -5,7 +5,6 @@ export default class HealthChart {
 
   getHealthChart(
     axisArray: number[],
-    bloodSeries: number[],
     bodyseries: number[],
     heartseries: number[],
     carbonSeries: number[]
@@ -20,7 +19,17 @@ export default class HealthChart {
 
     let option = {
       title: {
-        text: "Health Evolution"
+        text: "Health Evolution",
+        subtext: "Indicators compared to CO2",
+        textStyle: {
+          fontFamily: "Jura",
+          fontSize: "18",
+          fontStyle: "normal",
+          fontWeight: "bold"
+        },
+        subtextStyle: {
+          fontSize: "11"
+        }
       },
       tooltip: {
         trigger: "axis",
@@ -30,9 +39,6 @@ export default class HealthChart {
             backgroundColor: "#6a7985"
           }
         }
-      },
-      legend: {
-        data: ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]
       },
       toolbox: {
         feature: {
@@ -59,13 +65,6 @@ export default class HealthChart {
       ],
       series: [
         {
-          name: "Blood Pressure",
-          type: "line",
-          stack: "总量",
-          areaStyle: {},
-          data: bloodSeries
-        },
-        {
           name: "Body Temperature",
           type: "line",
           stack: "总量",
@@ -76,7 +75,11 @@ export default class HealthChart {
           name: "Heart Beat",
           type: "line",
           stack: "总量",
-          areaStyle: {},
+          areaStyle: {
+            normal: {
+              color: "#fa7040"
+            }
+          },
           data: heartseries
         },
         {
@@ -89,7 +92,11 @@ export default class HealthChart {
               position: "top"
             }
           },
-          areaStyle: { normal: {} },
+          areaStyle: {
+            normal: {
+              color: "#445351"
+            }
+          },
           data: carbonSeries
         }
       ]

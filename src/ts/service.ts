@@ -122,7 +122,8 @@ export default class Service {
 
           // Health Chart Arrays
           let days: number[] = [];
-          let bloodPressureArray: number[] = [];
+          let bpSystolicArray: number[] = [];
+          let bpDiastolicArray: number[] = [];
           let bodytemperatureArray: number[] = [];
           let heartBeatPerSecondArray: number[] = [];
           let carbonMonoxideArray: number[] = [];
@@ -146,18 +147,13 @@ export default class Service {
 
           responseArray.forEach(element => {
             let day = element.dayDate;
+            console.log("Que pasa?" + day);
 
             // Health Data
 
-            let bpSystolic = element.bpSystolic.toFixed(2);
-            let bpDiastolic = element.bpDiastolic.toFixed(2);
-            document.getElementById("systolic-value").innerHTML = bpSystolic;
-            document.getElementById("diastolic-value").innerHTML = bpDiastolic;
+            let bpSystolic = +element.bpSystolic.toFixed(2);
+            let bpDiastolic = +element.bpDiastolic.toFixed(2);
 
-            let bloodPressureString: string = (
-              +bpSystolic / +bpDiastolic
-            ).toFixed(2);
-            let bloodPressure: number = +bloodPressureString;
             let bodyTemperature = +element.bodyTemperature.toFixed(2);
             let heartBeatPerSecond = +element.heartBeatPerSecond.toFixed(2);
             let carbonMonoxide = +element.carbonMonoxide.toFixed(2);
@@ -181,7 +177,8 @@ export default class Service {
             // Pushing Health Chart
 
             days.push(day);
-            bloodPressureArray.push(bloodPressure);
+            bpSystolicArray.push(bpSystolic);
+            bpDiastolicArray.push(bpDiastolic);
             bodytemperatureArray.push(bodyTemperature);
             heartBeatPerSecondArray.push(heartBeatPerSecond);
             carbonMonoxideArray.push(carbonMonoxide);
@@ -194,7 +191,7 @@ export default class Service {
             carbonArray.push(carbon);
             ozoneArray.push(ozone);
 
-            // Pushing
+            // Pushing weather data
             tempArray.push(temperature);
             pressArray.push(pressure);
             humArray.push(humidity);
@@ -203,10 +200,12 @@ export default class Service {
           });
 
           console.log(days);
-          console.log(bloodPressureArray);
           console.log(bodytemperatureArray);
           console.log(heartBeatPerSecondArray);
           console.log(carbonMonoxideArray);
+
+          let bpSysAvg = getAverage(bpSystolicArray);
+          let bpDiasAvg = getAverage(bpDiastolicArray);
 
           console.log("Este es el valor del dustARRAY: " + dustArray);
           let dustAvg = getAverage(dustArray);
@@ -240,7 +239,6 @@ export default class Service {
           let healthChart = new HealthChart();
           healthChart.getHealthChart(
             days,
-            bloodPressureArray,
             bodytemperatureArray,
             heartBeatPerSecondArray,
             carbonMonoxideArray
@@ -252,6 +250,13 @@ export default class Service {
 
           let spChart = new SpChart();
           spChart.getWeatherChart(weatherData);
+
+          document.getElementById(
+            "systolic-value"
+          ).innerHTML = bpSysAvg.toString();
+          document.getElementById(
+            "diastolic-value"
+          ).innerHTML = bpDiasAvg.toString();
         }
       )
       .catch(function(error: AxiosError): void {
