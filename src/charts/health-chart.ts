@@ -25,7 +25,8 @@ export default class HealthChart {
           fontFamily: "Jura",
           fontSize: "18",
           fontStyle: "normal",
-          fontWeight: "bold"
+          fontWeight: "bold",
+          color: "#445351"
         },
         subtextStyle: {
           fontSize: "11"
