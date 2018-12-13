@@ -149,6 +149,8 @@ function sendDates() {
   console.log("Este es el datepicker from: " + datepickerfrom);
   console.log("Este es el datepicker from: " + datepickerto);
 
+  document.getElementById("pollutionview").removeAttribute("hidden");
+
   let value1D = datepickerfrom.value;
   let value2D = datepickerto.value;
 

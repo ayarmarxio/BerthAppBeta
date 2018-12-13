@@ -634,9 +634,19 @@ nav {
     border-right-width: 10px;
   }
 
+  #containerview {
+    width: 100%;
+    grid-column: 3/12;
+  }
+
+  #mainview {
+    width: 100%;
+    grid-column: 3/12;
+  }
+
   #centerview {
     display: inline-block;
-    grid-column: 3/10;
+    width: 100%;
   }
 
   #map {
@@ -645,16 +655,12 @@ nav {
     margin-right: 10px;
   }
 
-  // #map {
-
-  //   height: 560px;
-  //   width: 100%;
-  // }
-
   .pollution-view {
     grid-column: 10/13;
     align-items: center;
     padding: 5px;
+    z-index: 3;
+    background: whitesmoke;
   }
 
   #dp-chart {

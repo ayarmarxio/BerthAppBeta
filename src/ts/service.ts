@@ -18,6 +18,8 @@ const getAzureUriLogin: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/users/login/";
 const getAzureUriDateFilter: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/records/filterbydate/";
+const getUriDateFilter: string =
+  "http://localhost:50070/api/records/filterbydate/";
 
 // Class that contained methods to connect with the API
 export default class Service {
@@ -94,6 +96,7 @@ export default class Service {
       })
       .then((response: AxiosResponse) => {
         console.log(response.data);
+        alert("Your indicators has been saved. Enjoy life!");
       })
       .catch((error: AxiosError) => {
         console.log(error);
@@ -104,7 +107,11 @@ export default class Service {
   sendDatesToApi(userId: number, value1: number, value2: number) {
     event.preventDefault();
 
-    let query: string = getAzureUriDateFilter.concat(
+    // let query: string = getAzureUriDateFilter.concat(
+    //   userId + "/" + value1 + "/" + value2
+    // );
+
+    let query: string = getUriDateFilter.concat(
       userId + "/" + value1 + "/" + value2
     );
 
@@ -140,6 +147,7 @@ export default class Service {
 
           // Weather Data Array
           let weatherData: number[] = [];
+          console.log("Esta es la data del weather: " + weatherData);
 
           let tempArray: number[] = [];
           let pressArray: number[] = [];
