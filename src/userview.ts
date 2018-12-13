@@ -3,7 +3,6 @@ import OpenLayerClass from "./ts/openlayers";
 import Service from "./ts/service";
 
 //
-
 let userNameString: string = localStorage.getItem("userName");
 
 let userName: string =
@@ -89,6 +88,7 @@ function submitForm() {
 
   let userIdValue: string = localStorage.getItem("userId");
   let userValue: number = +userIdValue;
+
   console.log("Este es el valor: " + userIdValue);
 
   let service = new Service();
