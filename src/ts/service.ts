@@ -17,7 +17,7 @@ const postAzureUri: string =
 const getAzureUriLogin: string =
   "https://berthapibeta20181025031131.azurewebsites.net/api/users/login/";
 const getAzureUriDateFilter: string =
-  "http://localhost:50070/api/Records/filterbydate/";
+  "https://berthapibeta20181025031131.azurewebsites.net/api/records/filterbydate/";
 
 // Class that contained methods to connect with the API
 export default class Service {
