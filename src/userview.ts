@@ -3,16 +3,24 @@ import OpenLayerClass from "./ts/openlayers";
 import Service from "./ts/service";
 
 //
-let userName: string = localStorage.getItem("userName");
+
+let userNameString: string = localStorage.getItem("userName");
+
+let userName: string =
+  userNameString.charAt(0).toUpperCase() + userNameString.slice(1);
+
 console.log("Este es el usernam: " + userName);
-document.getElementById("user-span").innerHTML = "Welcome," + userName;
+
+document.getElementById("user-span").innerHTML = "Welcome, " + userName;
 
 let Olp = new OpenLayerClass();
+
 Olp.getMap();
 
 let submitBtn: HTMLButtonElement = <HTMLButtonElement>(
   document.getElementById("btn-submit")
 );
+
 submitBtn.addEventListener("click", submitForm);
 
 function submitForm() {
@@ -25,6 +33,7 @@ function submitForm() {
   let bpInput: HTMLInputElement = <HTMLInputElement>(
     document.getElementById("bp-input")
   );
+
   let btInput: HTMLInputElement = <HTMLInputElement>(
     document.getElementById("bt-input")
   );
@@ -62,7 +71,9 @@ function submitForm() {
   let btValue: number = +btValueString;
   let hbValueString: string = hbInput.value;
   let hbValue: number = +hbValueString;
+
   console.log("Este es el heartBeat per second: " + hbValue);
+
   let dpValueString: string = dpInput.value;
   let dpValue: number = +dpValueString;
   let sdValueString: string = sdInput.value;
