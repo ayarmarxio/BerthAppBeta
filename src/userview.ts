@@ -5,7 +5,7 @@ import Service from "./ts/service";
 //
 let userName: string = localStorage.getItem("userName");
 console.log("Este es el usernam: " + userName);
-document.getElementById("user-span").innerHTML = "Hi, " + userName;
+document.getElementById("user-span").innerHTML = "Welcome," + userName;
 
 let Olp = new OpenLayerClass();
 Olp.getMap();
@@ -143,6 +143,7 @@ let datepickerto: HTMLInputElement = <HTMLInputElement>(
 let findBtn: HTMLButtonElement = <HTMLButtonElement>(
   document.getElementById("find-btn")
 );
+
 findBtn.addEventListener("click", sendDates);
 
 function sendDates() {

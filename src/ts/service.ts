@@ -107,13 +107,13 @@ export default class Service {
   sendDatesToApi(userId: number, value1: number, value2: number) {
     event.preventDefault();
 
-    // let query: string = getAzureUriDateFilter.concat(
-    //   userId + "/" + value1 + "/" + value2
-    // );
-
-    let query: string = getUriDateFilter.concat(
+    let query: string = getAzureUriDateFilter.concat(
       userId + "/" + value1 + "/" + value2
     );
+
+    // let query: string = getUriDateFilter.concat(
+    //   userId + "/" + value1 + "/" + value2
+    // );
 
     console.log("Esta es la query: " + query);
 
